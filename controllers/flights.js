@@ -32,12 +32,14 @@ function show(req, res) {
 
 
 function newFlight(req,res) {
+
     const newFlight = new Flight()
+    
     const dt = newFlight.departs;
     // Format the date for the value attribute of the input
     let departsDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}`;
     departsDate += `-${dt.getDate().toString().padStart(2, '0')}T${dt.toTimeString().slice(0, 5)}`;
-    // newFlight.save()
+
     res.render('flights/new', { 
         title: 'New Flight',
         departsDate 
@@ -46,7 +48,7 @@ function newFlight(req,res) {
 
 function create(req, res) {
     console.log(req.body)
-    if (req.body.departs === "") req.body.departs = req.body.departs.default
+    // if (req.body.departs === "") req.body.departs = req.body.departs.default
     const flight = new Flight(req.body)
 
     flight.save(function(err){
