@@ -22,6 +22,7 @@ function create(req, res) {
  console.log("req.body")
  Ticket.create(req.body, function(err, ticket){
     res.redirect('tickets/new')
+    
  })
 }
 

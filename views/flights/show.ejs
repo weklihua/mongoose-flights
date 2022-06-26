@@ -13,10 +13,12 @@
     <!-- start cast list -->
     <div>Ticket:</div>
     <ul>
-      <%- flight.tickets.map(ticket => 
+      <%- tickets.map(ticket => 
         `<li>${ticket.seat} <small>${ticket.price}</small></li>`
       ).join('') %>
     </ul>
+    <a href="/tickets/new"	<%- title === 'Add Ticket' ? 'class="active"' : '' %>>
+      ADD TICKET</a>
   </section>
 
   <br><br><h2>Destinations</h2>
