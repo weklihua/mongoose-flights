@@ -1,4 +1,5 @@
 const Flight = require('../models/flight')
+const ticket = require('../models/ticket')
 // const defaultFlight = new Flight()
 // const dt = defaultFlight.departs;
 // // Format the date for the value attribute of the input
@@ -25,9 +26,17 @@ function index(req, res) {
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight){
-        res.render('flights/show', {
-            title: 'Flight Detail', 
-            flight})})}
+        ticket.find({flight: flight._id}, function(err, tickets){
+            res.render('flights/show', {
+                title: 'Flight Detail', 
+                flight,
+                tickets
+
+        })
+        })
+    })
+
+}
 
 
 
