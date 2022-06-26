@@ -11,7 +11,12 @@
     <div>Departure Time: </div>
     <div><%= flight.departs %></div>
     <!-- start cast list -->
- 
+    <div>Ticket:</div>
+    <ul>
+      <%- flight.tickets.map(ticket => 
+        `<li>${ticket.seat} <small>${ticket.price}</small></li>`
+      ).join('') %>
+    </ul>
   </section>
 
   <br><br><h2>Destinations</h2>

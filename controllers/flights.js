@@ -57,7 +57,7 @@ function newFlight(req,res) {
 
 function create(req, res) {
     console.log(req.body)
-    // if (req.body.departs === "") req.body.departs = req.body.departs.default
+    if (req.body.departs === "") req.body.departs = req.body.departs.default
     const flight = new Flight(req.body)
 
     flight.save(function(err){
